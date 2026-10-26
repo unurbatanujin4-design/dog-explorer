@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dog Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="m-0 min-h-screen bg-zinc-950 font-sans text-base text-stone-200">
+    <header
+      class="sticky top-0 w-full z-50 bg-zinc-900/90 backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(18,20,19,0.7)]"
+    >
+      <div
+        class="w-full px-4 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-2 sm:h-16 sm:py-0"
+      >
+        <div class="flex items-center gap-2">
+          <span aria-hidden="true" class="text-2xl">🐾</span>
+          <span class="font-bold text-xl text-stone-200 tracking-tight">
+            Dog Explorer
+          </span>
+        </div>
+        <nav class="flex items-center gap-2 md:gap-4">
+          <a
+            aria-current="page"
+            class="transition-colors bg-amber-500 text-amber-950 font-semibold text-sm rounded-full px-4 py-1"
+            href="#discover"
+          >
+            Discover
+          </a>
+          <a
+            class="font-semibold text-sm text-stone-300 hover:text-stone-200 px-4 py-1 rounded-full transition-colors"
+            href="#breeds"
+          >
+            Breeds
+          </a>
+          <a
+            class="font-semibold text-sm text-stone-300 hover:text-stone-200 px-4 py-1 rounded-full transition-colors"
+            href="#gallery"
+          >
+            Gallery
+          </a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <button
+            aria-label="Toggle color mode"
+            class="w-9 h-9 rounded-full bg-zinc-900 flex items-center justify-center text-amber-300 hover:bg-zinc-800 transition-colors"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="shrink-0 size-5"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="w-full bg-zinc-950">
+      <div class="flex flex-col w-full">
+        <section
+          class="bg-zinc-950 font-sans text-base text-stone-200 relative isolate w-full px-4 lg:px-8 pt-6 pb-10 overflow-hidden"
+          id="discover"
+        >
+          <div
+            class="absolute -top-32 left-1/4 w-96 h-96 rounded-full bg-amber-300/10 blur-3xl pointer-events-none -z-10"
+          ></div>
+          <div
+            class="absolute top-1/2 right-10 w-80 h-80 rounded-full bg-orange-400/10 blur-3xl pointer-events-none -z-10"
+          ></div>
+          <div
+            class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-10 items-center"
+          >
+            <div class="lg:col-span-7 flex flex-col items-start gap-4">
+              <div
+                class="inline-flex items-center gap-1 px-4 py-1 rounded-full bg-zinc-800 text-amber-300 font-semibold text-xs shadow-sm"
+              >
+                <span>🐾</span>
+                <span>Daily Joy Feed</span>
+              </div>
+              <h1
+                class="font-extrabold text-4xl leading-tight sm:text-5xl tracking-tight text-stone-200"
+              >
+                Meet a New
+                <span class="text-amber-500 relative inline-block">
+                  Friend
+                  <svg
+                    class="absolute -bottom-1 left-0 w-full h-2 text-amber-500"
+                    fill="none"
+                    preserveAspectRatio="none"
+                    viewBox="0 0 100 12"
+                  >
+                    <path
+                      d="M0,8 Q50,0 100,8"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-width="4"
+                    ></path>
+                  </svg>
+                </span>
+              </h1>
+              <p class="font-normal text-lg leading-7 text-stone-300 max-w-xl">
+                Discover dogs from around the world, one adorable face at a
+                time. Pure companionship, heart-melting grins, and gentle
+                spirits.
+              </p>
+              <div class="flex flex-wrap items-center gap-4 pt-2">
+                <button
+                  class="inline-flex items-center gap-1 px-10 py-4 rounded-full bg-amber-500 text-amber-950 font-semibold text-sm transition-transform hover:scale-105 active:scale-95 shadow-md"
+                  id="shuffleHeroBtn"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="shrink-0 size-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="m18 14 4 4-4 4M18 2l4 4-4 4M2 18h2.5a6 6 0 0 0 5-2.7l5-7.6A6 6 0 0 1 19.5 5H22M2 6h2.5a6 6 0 0 1 5 2.7l5 7.6a6 6 0 0 0 5 2.7H22"
+                    ></path>
+                  </svg>
+                  <span>Show Another</span>
+                </button>
+                <a
+                  class="inline-flex items-center gap-1 px-6 py-4 rounded-full bg-zinc-900 text-stone-200 font-semibold text-sm hover:bg-zinc-800 transition-colors"
+                  href="#breeds"
+                >
+                  <span>Explore Breeds</span>
+                  <svg
+                    aria-hidden="true"
+                    class="shrink-0 size-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M12 4v16m-6-6 6 6 6-6"></path>
+                  </svg>
+                </a>
+              </div>
+              <div
+                class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 w-full max-w-lg"
+              >
+                <div
+                  class="flex flex-col gap-1 p-4 rounded-3xl bg-zinc-900 shadow-sm"
+                >
+                  <div
+                    class="flex items-center justify-between text-stone-300 font-semibold text-xs"
+                  >
+                    <span>Friendliness</span>
+                    <svg
+                      aria-hidden="true"
+                      class="shrink-0 text-amber-300 size-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="9"></circle>
+                      <path d="M8 14s1 3 4 3 4-3 4-3M8 9h.01M16 9h.01"></path>
+                    </svg>
+                  </div>
+                  <span class="font-bold text-xl text-stone-200">10 / 10</span>
+                  <div
+                    class="w-full bg-zinc-800 h-2 rounded-full overflow-hidden mt-1"
+                  >
+                    <div class="bg-amber-500 h-full w-full rounded-full"></div>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col gap-1 p-4 rounded-3xl bg-zinc-900 shadow-sm"
+                >
+                  <div
+                    class="flex items-center justify-between text-stone-300 font-semibold text-xs"
+                  >
+                    <span>Energy Level</span>
+                    <svg
+                      aria-hidden="true"
+                      class="shrink-0 text-amber-300 size-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="m13 2-9 12h7l-1 8 10-12h-7l1-8Z"></path>
+                    </svg>
+                  </div>
+                  <span class="font-bold text-xl text-stone-200">Vibrant</span>
+                  <div
+                    class="w-full bg-zinc-800 h-2 rounded-full overflow-hidden mt-1"
+                  >
+                    <div class="bg-amber-500 h-full w-4/5 rounded-full"></div>
+                  </div>
+                </div>
+                <div
+                  class="col-span-2 sm:col-span-1 flex flex-col gap-1 p-4 rounded-3xl bg-zinc-900 shadow-sm"
+                >
+                  <div
+                    class="flex items-center justify-between text-stone-300 font-semibold text-xs"
+                  >
+                    <span>Mood Boost</span>
+                    <svg
+                      aria-hidden="true"
+                      class="shrink-0 text-amber-300 size-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M12 3c1 5 6 6 6 12a6 6 0 0 1-12 0c0-3 2-5 3-7 0 3 1 4 2 4 2-3 1-6 1-9Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <span class="font-bold text-xl text-stone-200">Instant</span>
+                  <div
+                    class="w-full bg-zinc-800 h-2 rounded-full overflow-hidden mt-1"
+                  >
+                    <div class="bg-amber-500 h-full w-full rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:col-span-5 relative">
+              <div
+                class="relative bg-zinc-900 p-4 rounded-3xl shadow-xl overflow-hidden group"
+              >
+                <div
+                  class="relative w-full h-105 rounded-3xl overflow-hidden bg-zinc-700"
+                >
+                  <img
+                    alt=""
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    src="https://images.dog.ceo/breeds/retriever-golden/n02099601_100.jpg"
+                  />
+                  <div
+                    class="absolute top-4 left-4 flex items-center gap-1 px-4 py-1 rounded-full bg-zinc-900/80 backdrop-blur-md text-stone-200 font-semibold text-xs"
+                  >
+                    <span
+                      class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"
+                    ></span>
+                    <span>Golden Retriever</span>
+                  </div>
+                  <div
+                    class="absolute top-4 right-4 px-4 py-1 rounded-full bg-amber-500 text-amber-950 font-semibold text-xs shadow-sm"
+                  >
+                    Gentle Giant
+                  </div>
+                  <div
+                    class="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-zinc-950 via-zinc-950/60 to-transparent"
+                  ></div>
+                  <div
+                    class="absolute bottom-4 inset-x-4 flex items-end justify-between"
+                  >
+                    <div>
+                      <h3 class="font-bold text-2xl text-stone-200">
+                        Sunny Cooper
+                      </h3>
+                      <p class="font-normal text-sm leading-5 text-stone-300">
+                        Gentle companion • Loves afternoon park fetch
+                      </p>
+                    </div>
+                    <div
+                      class="w-10 h-10 rounded-full bg-zinc-800/90 backdrop-blur-sm flex items-center justify-center text-amber-300 shadow-md"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="shrink-0 size-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <ellipse cx="12" cy="16" rx="6" ry="4"></ellipse>
+                        <ellipse cx="5" cy="9" rx="2" ry="3"></ellipse>
+                        <ellipse cx="10" cy="5" rx="2" ry="3"></ellipse>
+                        <ellipse cx="16" cy="6" rx="2" ry="3"></ellipse>
+                        <ellipse cx="20" cy="11" rx="2" ry="3"></ellipse>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mt-4 pt-1 flex items-center justify-between text-stone-300 font-semibold text-xs px-1"
+                >
+                  <span class="flex items-center gap-1">
+                    <svg
+                      aria-hidden="true"
+                      class="shrink-0 size-4 text-amber-300"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="m12 3 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-6Z"
+                      ></path>
+                    </svg>
+                    AKC Sporting Group
+                  </span>
+                  <span class="flex items-center gap-1">
+                    <svg
+                      aria-hidden="true"
+                      class="shrink-0 size-4 text-amber-300"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="9"></circle>
+                      <path d="M12 7v5l3 3"></path>
+                    </svg>
+                    10–12 Years
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          class="bg-zinc-950 font-sans text-base text-stone-200 w-full px-4 lg:px-8 py-10 "
+          id="breeds"
+        >
+          <div class="max-w-7xl mx-auto flex flex-col gap-6">
+            <div
+              class="flex flex-col md:flex-row md:items-end justify-between gap-4"
+            >
+              <div class="flex flex-col items-start gap-1 max-w-2xl">
+                <div
+                  class="inline-flex items-center gap-1 px-4 py-1 rounded-full bg-zinc-800 text-amber-300 font-semibold text-xs"
+                >
+                  <span>🐾</span>
+                  <span>BREED COMPENDIUM</span>
+                </div>
+                <h2
+                  class="font-bold text-3xl leading-tight text-stone-200 tracking-tight"
+                >
+                  Find Your Favorite Breed
+                </h2>
+                <p class="font-normal text-base leading-6 text-stone-300">
+                  Choose from hundreds of friendly breeds and see happy pups
+                  ready to brighten your day.
+                </p>
+              </div>
+              <div
+                class="flex flex-wrap items-center gap-2 bg-zinc-900 p-1 rounded-full shadow-sm"
+              >
+                <div class="relative">
+                  <select
+                    aria-label="Select dog breed"
+                    class="appearance-none bg-zinc-800 text-stone-200 font-semibold text-xs rounded-full pl-4 pr-10 py-1 focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer"
+                    id="breedSelect"
+                  >
+                    <option selected="" value="corgi">
+                      Pembroke Welsh Corgi
+                    </option>
+                    <option value="golden">Golden Retriever</option>
+                    <option value="frenchie">French Bulldog</option>
+                    <option value="shiba">Shiba Inu</option>
+                    <option value="samoyed">Samoyed</option>
+                  </select>
+                  <svg
+                    aria-hidden="true"
+                    class="shrink-0 size-5 text-stone-300 absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m6 9 6 6 6-6"></path>
+                  </svg>
+                </div>
+                <button
+                  class="px-6 py-1 rounded-full bg-amber-500 text-amber-950 font-semibold text-xs hover:brightness-105 transition-all"
+                  type="button"
+                >
+                  Show Dogs
+                </button>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 overflow-x-auto pb-1">
+              <button
+                class="px-4 py-1 rounded-full bg-amber-500 text-amber-950 font-semibold text-xs whitespace-nowrap shadow-sm"
+                type="button"
+              >
+                All Breeds
+              </button>
+              <button
+                class="px-4 py-1 rounded-full bg-zinc-900 text-stone-300 hover:text-stone-200 hover:bg-zinc-800 font-semibold text-xs whitespace-nowrap transition-colors"
+                type="button"
+              >
+                Pembroke Welsh Corgi
+              </button>
+              <button
+                class="px-4 py-1 rounded-full bg-zinc-900 text-stone-300 hover:text-stone-200 hover:bg-zinc-800 font-semibold text-xs whitespace-nowrap transition-colors"
+                type="button"
+              >
+                Golden Retriever
+              </button>
+              <button
+                class="px-4 py-1 rounded-full bg-zinc-900 text-stone-300 hover:text-stone-200 hover:bg-zinc-800 font-semibold text-xs whitespace-nowrap transition-colors"
+                type="button"
+              >
+                French Bulldog
+              </button>
+              <button
+                class="px-4 py-1 rounded-full bg-zinc-900 text-stone-300 hover:text-stone-200 hover:bg-zinc-800 font-semibold text-xs whitespace-nowrap transition-colors"
+                type="button"
+              >
+                Shiba Inu
+              </button>
+              <button
+                class="px-4 py-1 rounded-full bg-zinc-900 text-stone-300 hover:text-stone-200 hover:bg-zinc-800 font-semibold text-xs whitespace-nowrap transition-colors"
+                type="button"
+              >
+                Samoyed
+              </button>
+            </div>
+            <div
+              class="w-full bg-zinc-900 p-6 rounded-3xl shadow-md flex flex-col md:flex-row items-center justify-between gap-4 relative overflow-hidden"
+            >
+              <div
+                class="absolute -right-10 -bottom-10 w-48 h-48 bg-amber-300/10 rounded-full blur-2xl pointer-events-none"
+              ></div>
+              <div class="flex items-center gap-4 z-10">
+                <div
+                  class="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-300"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="shrink-0 size-7"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="m12 3 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-6Z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <h3 class="font-bold text-xl text-stone-200">
+                      Pembroke Welsh Corgi
+                    </h3>
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-amber-500 text-amber-950 font-semibold text-xs"
+                    >
+                      Top Pick
+                    </span>
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-zinc-700 text-stone-300 font-semibold text-xs"
+                    >
+                      Great with Kids
+                    </span>
+                  </div>
+                  <p
+                    class="font-normal text-sm leading-5 text-stone-300 mt-0.5"
+                  >
+                    Playful &amp; Bold • Herding Group • Adaptable Companion
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 z-10 w-full md:w-auto justify-end"
+              >
+                <div
+                  class="hidden sm:flex items-center gap-2 text-stone-300 font-semibold text-xs"
+                >
+                  <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                  <span>High Trainability</span>
+                </div>
+                <button
+                  class="px-4 py-1 rounded-full bg-zinc-800 text-amber-300 hover:bg-zinc-700 font-semibold text-xs transition-colors"
+                  type="button"
+                >
+                  Read Breed Guide
+                </button>
+              </div>
+            </div>
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6"
+            >
+              <div
+                class="group flex flex-col bg-zinc-900 rounded-3xl p-4 shadow-md hover:-translate-y-1 transition-all duration-300"
+              >
+                <div
+                  class="relative w-full h-64 rounded-3xl overflow-hidden bg-zinc-700"
+                >
+                  <img
+                    alt=""
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                  />
+                  <div
+                    class="absolute top-2 left-2 px-4 py-1 rounded-full bg-zinc-950/80 backdrop-blur-md text-stone-200 font-semibold text-xs"
+                  >
+                    Pembroke Welsh Corgi
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1 pt-4">
+                  <div class="flex items-center justify-between">
+                    <h4 class="font-bold text-xl text-stone-200">Barnaby</h4>
+                    <span class="text-amber-300 font-semibold text-xs">
+                      2 Years Old
+                    </span>
+                  </div>
+                  <p class="font-normal text-sm leading-5 text-stone-300">
+                    Loves open fields &amp; warm nap spots
+                  </p>
+                  <div class="flex flex-wrap gap-1 pt-1">
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-zinc-800 text-stone-300 font-semibold text-xs"
+                    >
+                      Affectionate
+                    </span>
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-zinc-800 text-stone-300 font-semibold text-xs"
+                    >
+                      Alert
+                    </span>
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-zinc-800 text-stone-300 font-semibold text-xs"
+                    >
+                      Smart
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group flex flex-col bg-zinc-900 rounded-3xl p-4 shadow-md hover:-translate-y-1 transition-all duration-300"
+              >
+                <div
+                  class="relative w-full h-64 rounded-3xl overflow-hidden bg-zinc-700"
+                >
+                  <img
+                    alt=""
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                  />
+                  <div
+                    class="absolute top-2 left-2 px-4 py-1 rounded-full bg-zinc-950/80 backdrop-blur-md text-stone-200 font-semibold text-xs"
+                  >
+                    French Bulldog
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1 pt-4">
+                  <div class="flex items-center justify-between">
+                    <h4 class="font-bold text-xl text-stone-200">Milo</h4>
+                    <span class="text-amber-300 font-semibold text-xs">
+                      1.5 Years Old
+                    </span>
+                  </div>
+                  <p class="font-normal text-sm leading-5 text-stone-300">
+                    Curious couch companion &amp; snore champion
+                  </p>
+                  <div class="flex flex-wrap gap-1 pt-1">
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-zinc-800 text-stone-300 font-semibold text-xs"
+                    >
+                      Quiet
+                    </span>
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-zinc-800 text-stone-300 font-semibold text-xs"
+                    >
+                      Loving
+                    </span>
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-zinc-800 text-stone-300 font-semibold text-xs"
+                    >
+                      Easygoing
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group flex flex-col bg-zinc-900 rounded-3xl p-4 shadow-md hover:-translate-y-1 transition-all duration-300"
+              >
+                <div
+                  class="relative w-full h-64 rounded-3xl overflow-hidden bg-zinc-700"
+                >
+                  <img
+                    alt=""
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    src="https://images.dog.ceo/breeds/retriever-golden/n02099601_100.jpg"
+                  />
+                  <div
+                    class="absolute top-2 left-2 px-4 py-1 rounded-full bg-zinc-950/80 backdrop-blur-md text-stone-200 font-semibold text-xs"
+                  >
+                    Golden Retriever
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1 pt-4">
+                  <div class="flex items-center justify-between">
+                    <h4 class="font-bold text-xl text-stone-200">Archie</h4>
+                    <span class="text-amber-300 font-semibold text-xs">
+                      3 Years Old
+                    </span>
+                  </div>
+                  <p class="font-normal text-sm leading-5 text-stone-300">
+                    Radiant park sprinter &amp; swimming enthusiast
+                  </p>
+                  <div class="flex flex-wrap gap-1 pt-1">
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-zinc-800 text-stone-300 font-semibold text-xs"
+                    >
+                      Gentle
+                    </span>
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-zinc-800 text-stone-300 font-semibold text-xs"
+                    >
+                      Devoted
+                    </span>
+                    <span
+                      class="px-2 py-0.5 rounded-full bg-zinc-800 text-stone-300 font-semibold text-xs"
+                    >
+                      Joyous
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          class="bg-zinc-950 font-sans text-base text-stone-200 w-full px-4 lg:px-8 py-10"
+          id="gallery"
+        >
+          <div class="max-w-7xl mx-auto flex flex-col gap-6 items-center">
+            <div class="text-center flex flex-col items-center gap-1 max-w-xl">
+              <div
+                class="inline-flex items-center gap-1 px-4 py-1 rounded-full bg-zinc-800 text-amber-300 font-semibold text-xs"
+              >
+                <span>📸</span>
+                <span>Community Snaps</span>
+              </div>
+              <h2
+                class="font-bold text-3xl leading-tight text-stone-200 tracking-tight"
+              >
+                More Dogs to Love
+              </h2>
+              <p class="font-normal text-base leading-6 text-stone-300">
+                A lively collection of everyday wagging tails, sweet snouts, and
+                happy smiles.
+              </p>
+            </div>
+            <div
+              class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-4"
+            >
+              <div
+                class="group relative h-80 rounded-3xl overflow-hidden bg-zinc-900 shadow-md"
+              >
+                <img
+                  alt=""
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                />
+                <div
+                  class="absolute inset-0 bg-linear-to-t from-zinc-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4"
+                >
+                  <div>
+                    <p class="text-stone-200 font-semibold text-sm">
+                      Summer Garden Stroll
+                    </p>
+                    <p class="text-amber-300 font-semibold text-xs">
+                      Corgi Companion
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group relative h-80 rounded-3xl overflow-hidden bg-zinc-900 shadow-md"
+              >
+                <img
+                  alt=""
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                />
+                <div
+                  class="absolute inset-0 bg-linear-to-t from-zinc-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4"
+                >
+                  <div>
+                    <p class="text-stone-200 font-semibold text-sm">
+                      Curious Head-tilt
+                    </p>
+                    <p class="text-amber-300 font-semibold text-xs">
+                      French Bulldog
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group relative h-80 rounded-3xl overflow-hidden bg-zinc-900 shadow-md"
+              >
+                <img
+                  alt=""
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src="https://images.dog.ceo/breeds/retriever-golden/n02099601_100.jpg"
+                />
+                <div
+                  class="absolute inset-0 bg-linear-to-t from-zinc-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4"
+                >
+                  <div>
+                    <p class="text-stone-200 font-semibold text-sm">
+                      Sunlit Afternoon
+                    </p>
+                    <p class="text-amber-300 font-semibold text-xs">
+                      Golden Retriever
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group relative h-80 rounded-3xl overflow-hidden bg-zinc-900 shadow-md"
+              >
+                <img
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  alt=""
+                  src="https://images.dog.ceo/breeds/australian-shepherd/pepper.jpg"
+                />
+                <div
+                  class="absolute inset-0 bg-linear-to-t from-zinc-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4"
+                >
+                  <div>
+                    <p class="text-stone-200 font-semibold text-sm">
+                      Forest Wanderer
+                    </p>
+                    <p class="text-amber-300 font-semibold text-xs">
+                      Aussie Shepherd
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4">
+              <button
+                class="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-zinc-900 text-stone-200 font-semibold text-sm hover:bg-zinc-800 transition-transform active:scale-95 shadow-md"
+                id="loadMoreBtn"
+                type="button"
+              >
+                <span>🐾</span>
+                <span>Show More Pups</span>
+                <svg
+                  aria-hidden="true"
+                  class="shrink-0 size-5 text-amber-300"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20 7v5h-5M4 17v-5h5M6.1 6.1A8 8 0 0 1 20 12M4 12a8 8 0 0 0 13.9 5.9"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="w-full bg-zinc-950 mt-10 py-6">
+      <div
+        class="w-full px-4 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4"
+      >
+        <p
+          class="font-normal text-sm leading-5 text-stone-300 text-center md:text-left"
+        >
+          Crafted with warmth for dog lovers everywhere.
+        </p>
+        <div class="flex items-center gap-6">
+          <a
+            class="font-semibold text-xs text-stone-300 hover:text-amber-300 transition-colors flex items-center gap-1"
+            href="#"
+          >
+            Back to Top
+            <svg
+              aria-hidden="true"
+              class="shrink-0 size-4"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 20V4m-6 6 6-6 6 6"></path>
+            </svg>
+          </a>
+          <span class="font-normal text-sm leading-5 text-stone-400">
+            © Dog Explorer
+          </span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
